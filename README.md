@@ -5,12 +5,24 @@ static int otwarte = 1; //schronisko jest otwarte
 static int zamkniete = 2; //dostawa zaopatrzenia
 static int zaopatrzenie_na_wykonczeniu = 3; //schronisko się zamyka
 static int warunki_ekstremalne = 4; //zdarzenie ekstremalne/katastrofa - wyjście z pętli
-
-void Wyslij(int proces_nr, int status); //funkcja wysyłająca dane
-void Symulator(int proc_il); //odbieranie danych MPI_Recv, wyświetlanie komunikatów
-void Schronisko(); //manipulacja schroniskiem (zmiana statusów, pomniejszanie zaopatrzenia)
-
-int main(int argc, char** argv) //inicjalizacja MPI, sprawdzanie numeru procesu: ==0 -> wywołanie Symulatora, !=0 -> wywołanie schroniska dla procesu
+```
+Funkcja wysyłająca dane
+```cpp
+void Wyslij(int proces_nr, int status); 
+```
+Odbieranie danych MPI_Recv, wyświetlanie komunikatów
+```cpp
+void Symulator(int proc_il);
+```
+Manipulacja schroniskiem (zmiana statusów, pomniejszanie zaopatrzenia)
+```cpp
+void Schronisko();
+```
+inicjalizacja MPI, sprawdzanie numeru procesu: 
+		   ==0 -> wywołanie Symulatora, 
+		   !=0 -> wywołanie schroniska dla procesu
+```cpp
+int main(int argc, char** argv)
 {
 	MPI_Init(&argc, &argv);
 	MPI_Comm_rank(MPI_COMM_WORLD,&proc_nr);
