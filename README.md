@@ -18,9 +18,7 @@ Manipulacja schroniskiem (zmiana statusów, pomniejszanie zaopatrzenia)
 ```cpp
 void Schronisko();
 ```
-inicjalizacja MPI, sprawdzanie numeru procesu: 
-		   ==0 -> wywołanie Symulatora, 
-		   !=0 -> wywołanie schroniska dla procesu
+inicjalizacja MPI, sprawdzanie numeru procesu: <br>==0 -> wywołanie Symulatora, <br>!=0 -> wywołanie schroniska dla procesu
 ```cpp
 int main(int argc, char** argv)
 {
